@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0070f3",
+                        "background-light": "#000000",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["JetBrains Mono", "monospace"],
+                        "sans": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white antialiased">
+    <div class="relative flex min-h-screen flex-col bg-black">
+        <header id="mainHeader"
+            class="p-[20px] flex flex-col justify-start fixed inset-x-0 top-4 mx-6 bg-black/20 backdrop-blur-xl z-50 overflow-hidden transition-all duration-500 max-h-[68px] border border-white/10 shadow-2xl">
+            <div class="flex items-center justify-between w-full h-[28px] shrink-0">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold tracking-tighter uppercase cursor-pointer"
+                        onclick="location.href='../index.html'">Self Attendance</h1>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleMenu()"
+                        class="p-2 hover:bg-white/10 transition-colors z-50 rounded-full flex items-center justify-center -mr-2">
+                        <span class="material-symbols-outlined text-white" id="menuIcon">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Expanded Menu Content -->
+            <div id="expandedMenu"
+                class="pt-10 pb-6 flex flex-col items-center gap-8 opacity-0 transition-opacity duration-300 pointer-events-none w-full shrink-0">
+                <nav class="flex flex-col items-center gap-6 text-3xl font-black uppercase tracking-tighter text-white">
+                    <a href="../index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="../features_page_blue/code.html" class="hover:text-primary transition-colors">Features</a>
+                    <a href="../privacy_policy_blue/code.html"
+                        class="hover:text-primary transition-colors text-primary">Privacy</a>
+                </nav>
+                <div class="mt-6 flex justify-center w-full px-8 pb-4">
+                    <button
+                        class="w-full md:w-auto md:px-16 bg-white text-black py-4 font-black uppercase text-lg border-2 border-white hover:bg-black hover:text-white transition-all">
+                        Download Now
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <script>
+            function toggleMenu() {
+                const header = document.getElementById('mainHeader');
+                const menu = document.getElementById('expandedMenu');
+                const icon = document.getElementById('menuIcon');
+
+                if (header.classList.contains('max-h-[68px]')) {
+                    // Expand
+                    header.classList.remove('max-h-[68px]');
+                    header.classList.add('max-h-[600px]', 'bg-black/50');
+                    header.classList.remove('bg-black/20');
+                    menu.classList.remove('opacity-0', 'pointer-events-none');
+                    menu.classList.add('opacity-100');
+                    icon.textContent = 'close';
+                } else {
+                    // Collapse
+                    header.classList.remove('max-h-[600px]', 'bg-black/50');
+                    header.classList.add('max-h-[68px]', 'bg-black/20');
+                    menu.classList.remove('opacity-100');
+                    menu.classList.add('opacity-0', 'pointer-events-none');
+                    icon.textContent = 'menu';
+                }
+            }
+        </script>
+        <main class="mx-auto max-w-6xl px-4 md:px-6 pb-12 md:pb-20 pt-[120px] md:pt-[140px] w-full overflow-hidden">
+            <div class="mb-12 md:mb-16 flex justify-start w-full">
+                <div class="border-l-4 border-primary pl-4 md:pl-6 text-left max-w-full break-words">
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-black uppercase mb-4 tracking-tighter"
+                        style="word-break: break-word;">Privacy Policy</h1>
+                    <p class="text-primary font-bold uppercase tracking-widest text-xs md:text-sm">Effective Date: March
+                        3, 2026</p>
+                </div>
+            </div>
+            <section class="space-y-16 max-w-5xl mx-auto w-full text-slate-300 leading-relaxed">
+                <!-- 01 -->
+                <div class="text-left">
+                    <h2
+                        class="text-xl md:text-2xl font-bold uppercase mb-6 flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-white w-full break-words text-left">
+                        <span class="text-primary">01.</span> Introduction
+                    </h2>
+                    <p class="text-left w-full mx-auto text-sm md:text-base">
+                        This Privacy Policy describes how Self Attendance ("we", "us", or "our") collects, uses, and
+                        discloses your information when you use our mobile application and related services
+                        (collectively, the "Service"). We are thoroughly committed to ensuring that your privacy is
+                        protected and respected. The short version: <strong>We do not collect, store, or share any of
+                            your personal data.</strong>
+                    </p>
+                </div>
+                <!-- 02 -->
+                <div class="border-t border-white/20 pt-16 text-left">
+                    <h2
+                        class="text-xl md:text-2xl font-bold uppercase mb-8 flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-white w-full break-words text-left">
+                        <span class="text-primary">02.</span> Zero Data Collection
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full text-left">
+                        <div class="bg-white/5 p-8 border border-white/10 w-full transition-colors hover:bg-white/10">
+                            <h3 class="font-bold uppercase text-primary mb-3 text-lg">No Personal Data</h3>
+                            <p class="text-sm opacity-90">We do not require you to create an account, provide an email
+                                address, or share any personally identifiable information to use our Service. All your
+                                attendance data is securely stored locally on your device.</p>
+                        </div>
+                        <div class="bg-white/5 p-8 border border-white/10 w-full transition-colors hover:bg-white/10">
+                            <h3 class="font-bold uppercase text-primary mb-3 text-lg">No Tracking or Analytics</h3>
+                            <p class="text-sm opacity-90">We do not use tracking software, analytics tools, or
+                                advertising identifiers. What you do within the app stays entirely on your device.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 03 -->
+                <div class="border-t border-white/20 pt-16 text-left">
+                    <h2
+                        class="text-xl md:text-2xl font-bold uppercase mb-8 flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-white w-full break-words text-left">
+                        <span class="text-primary">03.</span> Third-Party Services
+                    </h2>
+                    <p class="text-left text-sm md:text-base">
+                        The Service does not utilize any third-party integrations, behavioral tracking networks, or
+                        remote crash diagnostics. Because we do not collect your information, we cannot and do not share
+                        your information with any third-party entities.
+                    </p>
+                </div>
+                <!-- 04 -->
+                <div class="border-t border-white/20 pt-16 text-left">
+                    <h2
+                        class="text-xl md:text-2xl font-bold uppercase mb-6 flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-white w-full break-words text-left">
+                        <span class="text-primary">04.</span> Data Security & Retention
+                    </h2>
+                    <div class="bg-white/5 border-l-4 border-primary p-8 w-full text-left">
+                        <p class="text-sm md:text-base opacity-90">
+                            Since all data generated while using the Service is saved strictly to your device's local
+                            storage, you hold the ultimate responsibility for its security. Deleting the application
+                            will permanently erase your data.
+                        </p>
+                    </div>
+                </div>
+                <!-- 05 -->
+                <div class="border-t border-white/20 pt-16 text-left">
+                    <h2 class="text-2xl font-bold uppercase mb-6 flex items-center justify-start gap-2 text-white">
+                        <span class="text-primary">05.</span> Changes & Revisions
+                    </h2>
+                    <p class="text-left text-sm md:text-base">
+                        We reserve the right to modify or replace this Privacy Policy at our discretion. If a revision
+                        is material, we will provide at least 30 days' notice prior to any new terms taking effect by
+                        updating the "Effective Date" at the top of this policy. Continued use of the Service after
+                        changes constitutes acceptance of the modified Privacy Policy.
+                    </p>
+                </div>
+                <!-- Contact Info -->
+                <div class="border-t-4 border-primary pt-16 mb-20 text-left flex flex-col items-start">
+                    <h2 class="text-3xl font-black uppercase mb-6 flex items-center justify-start gap-2 text-white">
+                        Contact Official Support
+                    </h2>
+                    <p class="mb-8 text-sm md:text-base text-left max-w-2xl text-slate-400">For exhaustive inquiries
+                        relating to data compliance, opt-out requests, or privacy concerns, correspond with our
+                        dedicated support channel:</p>
+                    <a href="mailto:farhanfp20@gmail.com"
+                        class="inline-block bg-white text-black px-10 py-5 font-bold text-xl uppercase tracking-widest border border-white hover:bg-black hover:text-white transition-all cursor-pointer">
+                        farhanfp20@gmail.com
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-black border-t-2 border-white py-12 px-6 mt-auto">
+            <div class="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-2xl">fingerprint</span>
+                    <span class="font-bold uppercase">Self Attendance</span>
+                </div>
+                <div class="text-xs uppercase font-bold text-slate-500">
+                    © 2023 ALL RIGHTS RESERVED. NO DATA MINING PERMITTED.
+                </div>
+                <div class="flex gap-6">
+                    <a class="text-xs font-bold uppercase hover:text-primary" href="#">Twitter</a>
+                    <a class="text-xs font-bold uppercase hover:text-primary" href="#">GitHub</a>
+                    <a class="text-xs font-bold uppercase hover:text-primary" href="#">Discord</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

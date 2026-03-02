@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Self Attendance | Stay Safe</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0070f3",
+                        "background-light": "#000000",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Space Mono", "monospace"],
+                        "sans": ["Space Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Space Mono', monospace;
+        }
+
+        * {
+            border-radius: 0 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white antialiased">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header id="mainHeader"
+            class="p-[20px] flex flex-col justify-start fixed inset-x-0 mx-6 top-4 bg-black/20 backdrop-blur-xl z-50 overflow-hidden transition-all duration-500 max-h-[68px] border border-white/10 shadow-2xl">
+            <div class="flex items-center justify-between w-full h-[28px] shrink-0">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold tracking-tighter uppercase cursor-pointer"
+                        onclick="location.href='index.html'">Self Attendance</h1>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleMenu()"
+                        class="p-2 hover:bg-white/10 transition-colors z-50 rounded-full flex items-center justify-center -mr-2">
+                        <span class="material-symbols-outlined text-white" id="menuIcon">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Expanded Menu Content -->
+            <div id="expandedMenu"
+                class="pt-10 pb-6 flex flex-col items-center gap-8 opacity-0 transition-opacity duration-300 pointer-events-none w-full shrink-0">
+                <nav class="flex flex-col items-center gap-6 text-3xl font-black uppercase tracking-tighter text-white">
+                    <a href="index.html" class="hover:text-primary transition-colors text-primary">Home</a>
+                    <a href="features_page_blue/code.html" class="hover:text-primary transition-colors">Features</a>
+                    <a href="privacy_policy_blue/code.html" class="hover:text-primary transition-colors">Privacy</a>
+                </nav>
+                <div class="mt-6 flex justify-center w-full px-8 pb-4">
+                    <button
+                        class="w-full md:w-auto md:px-16 bg-white text-black py-4 font-black uppercase text-lg border-2 border-white hover:bg-black hover:text-white transition-all">
+                        Download Now
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <script>
+            function toggleMenu() {
+                const header = document.getElementById('mainHeader');
+                const menu = document.getElementById('expandedMenu');
+                const icon = document.getElementById('menuIcon');
+
+                if (header.classList.contains('max-h-[68px]')) {
+                    // Expand
+                    header.classList.remove('max-h-[68px]');
+                    header.classList.add('max-h-[600px]', 'bg-black/50');
+                    header.classList.remove('bg-black/20');
+                    menu.classList.remove('opacity-0', 'pointer-events-none');
+                    menu.classList.add('opacity-100');
+                    icon.textContent = 'close';
+                } else {
+                    // Collapse
+                    header.classList.remove('max-h-[600px]', 'bg-black/50');
+                    header.classList.add('max-h-[68px]', 'bg-black/20');
+                    menu.classList.remove('opacity-100');
+                    menu.classList.add('opacity-0', 'pointer-events-none');
+                    icon.textContent = 'menu';
+                }
+            }
+        </script>
+        <!-- Hero Section -->
+        <main class="flex-grow pt-[100px]">
+            <section class="px-6 py-20">
+                <div class="max-w-6xl mx-auto space-y-8">
+                    <h2 class="text-5xl md:text-8xl font-bold leading-[0.9] uppercase tracking-tighter max-w-4xl">
+                        Track your attendance. <span class="text-primary">Control your percentage.</span> Never get
+                        detained.
+                    </h2>
+                    <p class="text-lg border-l-4 border-primary pl-4 max-w-md">
+                        Stay ahead of your academic requirements with precise tracking and high-contrast smart
+                        calculations.
+                    </p>
+                    <div class="flex justify-start gap-4">
+                        <button
+                            class="bg-white text-black px-10 py-4 text-lg font-bold uppercase border-2 border-white hover:bg-black hover:text-white transition-all">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- Features Section -->
+            <section class="px-6 py-24" id="features">
+                <div class="max-w-6xl mx-auto">
+                    <div class="mb-16 border-b-4 border-white inline-block">
+                        <h3 class="text-4xl font-bold uppercase tracking-tighter pb-2">Core Systems</h3>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <!-- Feature 1 -->
+                        <div
+                            class="p-10 flex flex-col items-center text-center gap-6 opacity-80 hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-5xl text-primary">analytics</span>
+                            <div>
+                                <h4 class="text-2xl font-bold uppercase mb-4">Self attendance tracking</h4>
+                                <p class="text-zinc-400">Log your daily presence with a single tap. Zero friction, total
+                                    accuracy for every lecture attended.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div
+                            class="p-10 flex flex-col items-center text-center gap-6 opacity-80 hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-5xl text-primary">calculate</span>
+                            <div>
+                                <h4 class="text-2xl font-bold uppercase mb-4">Smart bunk calculation</h4>
+                                <p class="text-zinc-400">Automated algorithmic projections. Know exactly how many
+                                    classes you can skip while staying safe.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div
+                            class="p-10 flex flex-col items-center text-center gap-6 opacity-80 hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-5xl text-primary">table_rows</span>
+                            <div>
+                                <h4 class="text-2xl font-bold uppercase mb-4">Clean subject-wise view</h4>
+                                <p class="text-zinc-400">Organized overview of your attendance status per subject. High
+                                    contrast tables for quick scanning.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- CTA Section -->
+            <section class="bg-white text-black py-24 px-6">
+                <div class="max-w-4xl mx-auto text-center space-y-10">
+                    <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none">
+                        Ready to take control of your time?
+                    </h2>
+                    <p class="text-xl font-bold uppercase tracking-widest">
+                        Join 10,000+ students avoiding detention.
+                    </p>
+                    <div class="flex justify-center">
+                        <button
+                            class="bg-black text-white px-12 py-5 text-xl font-bold uppercase border-4 border-black hover:bg-white hover:text-black transition-all">
+                            Download Now [V2.0]
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="border-t-2 border-white p-8 bg-black text-xs uppercase font-bold tracking-widest text-zinc-500">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-2 text-white">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    <span>Self Attendance © 2024</span>
+                </div>
+                <div class="flex gap-8">
+                    <a class="hover:text-primary" href="features_page_blue/code.html">Features</a>
+                    <a class="hover:text-primary" href="https://github.com" target="_blank">Github</a>
+                    <a class="hover:text-primary" href="privacy_policy_blue/code.html">Privacy Policy</a>
+                </div>
+                <div class="text-primary">
+                    Built for high-performance students.
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
